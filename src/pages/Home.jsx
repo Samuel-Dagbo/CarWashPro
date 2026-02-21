@@ -28,9 +28,10 @@ export default function Home() {
               Book online in just a few clicks and track every appointment from your dashboard.
             </p>
 
+
             <div className="mt-9 flex flex-wrap gap-3">
               <Link to="/book" className="rounded-lg bg-brand-accent px-6 py-3 font-bold text-brand-ink transition hover:bg-brand-accent-strong">
-                Book a Service
+                Book a Service Now
               </Link>
               <Link to="/track" className="rounded-lg border border-brand-border bg-white px-6 py-3 font-semibold text-brand-ink transition hover:bg-brand-soft">
                 Track Booking
