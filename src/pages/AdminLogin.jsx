@@ -7,6 +7,7 @@ import adminImage from "../assets/pic1.jpeg";
 export default function AdminLogin() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ username: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -61,13 +62,22 @@ export default function AdminLogin() {
 
           <div>
             <label className="mb-1 block text-sm font-semibold text-brand-muted">Password</label>
-            <input
-              type="password"
-              className="w-full rounded-lg border border-brand-border p-3 focus:border-brand-accent focus:outline-none focus:ring-2 focus:ring-brand-accent/40"
-              value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-              required
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="w-full rounded-lg border border-brand-border p-3 pr-20 focus:border-brand-accent focus:outline-none focus:ring-2 focus:ring-brand-accent/40"
+                value={form.password}
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md bg-brand-soft px-2 py-1 text-xs font-semibold text-brand-muted hover:bg-brand-accent hover:text-brand-ink"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
           </div>
 
           {error && <p className="text-sm font-semibold text-rose-600">{error}</p>}
